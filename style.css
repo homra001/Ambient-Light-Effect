@@ -1,0 +1,122 @@
+:root{
+    --col: #f0f;
+    --coln: 255,0,255;    
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{    
+    min-height: 100vh;
+    background: #050505;
+}
+
+.ch{
+    float: left;
+}
+
+.btndiv{
+    width: 20%;
+    height: 100vmin;      
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.bt{
+    width: 12vmin;
+    height: 6vmin;
+    margin-bottom: 2vmin;
+    border-radius: 10px;
+}
+
+
+.cubediv{
+    width: 80%;
+    height: 100vmin;
+}
+
+.cubeflex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.cube{     
+    position: relative;
+    width: 250px;
+    height: 250px;
+    transform-style: preserve-3d;
+    transform: rotateX(-90deg);
+    animation: animate 20s linear infinite;
+}
+
+@keyframes animate {
+    0%{
+        transform: rotateX(-30deg) rotateY(0deg);
+    }
+    100%{
+        transform: rotateX(-30deg) rotateY(360deg); 
+    }
+}
+
+.cube div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.cube div span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#151515, var(--col));
+    transform: rotateY(calc(30deg * var(--i))) translateZ(125px);/* 300 / 2 = 150*/;
+}
+
+.top{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 250px;
+    background: #222;
+    /* transform: rotateX(90deg) translateZ(150px);       */
+}
+
+.top:nth-child(1){transform: rotateX(90deg) translateZ(125px);}
+.top:nth-child(2){transform: rotateX(90deg) rotateZ(30deg) translateZ(125px);}
+.top:nth-child(3){transform: rotateX(90deg) rotateZ(60deg) translateZ(125px);}
+
+
+
+.top::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 250px;
+    background: var(--col);
+    transform: translateZ(-430px);
+    filter: blur(10px);
+    box-shadow: 0 0 120px rgba(var(--coln),0.1),
+                0 0 200px rgba(var(--coln),0.2),
+                0 0 300px rgba(var(--coln),0.3),
+                0 0 400px rgba(var(--coln),0.4),
+                0 0 500px rgba(var(--coln),0.5);
+}
